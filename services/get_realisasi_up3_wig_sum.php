@@ -18,7 +18,8 @@ $sql = "SELECT status,
                up3, 
                wig, 
                lm,tanggal_insert, 
-               
+               COUNT(IF(status = 'MENANG',1,NULL)) AS total_menang,
+               COUNT(IF(status = 'KALAH',1,NULL)) AS total_kalah,
                SUM(target) AS total_target, 
                SUM(realisasi) AS total_realisasi 
                FROM t_transaksi WHERE up3='$up3' AND wig='$wig'
