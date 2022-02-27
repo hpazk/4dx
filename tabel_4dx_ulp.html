@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin 2 - Tables</title>
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this page -->
+    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <form class="form-inline">
+                        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                    </form>
+
+                  
+
+                   
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">DATA 4DX</h1>
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="row">
+                            <div class="col">
+                                <div class="card-header py-3">
+                                    <a href="tambah.html"  h6 class="m-0 font-weight-bold text-primary" >Data Entry 4DX</h6>
+                                </a></div>
+                            </div>
+                            <div class="col">
+                                <div class="card-header py-3">
+                                    <a href="tabel_4dx_up3_wig.html" h6 class="m-0 font-weight-bold text-primary"  >Data Hasil Entry 4DX UP3</h6>
+                                </a></div>
+                            </div>
+                            <div class="col">
+                                <div class="card-header py-3">
+                                    <a href="tabel_4dx_ulp.html" h6 class="m-0 font-weight-bold text-primary"  >Data Hasil Entry 4DX ULP</h6>
+                                </a></div>
+                            </div>
+                        </div>
+                        
+                        <div class="card-body">
+                            <form id="formTambah">
+                                 <div class="form-group">
+                                  <label for="up3">UP3</label>
+                                  <select class="form-control" id="up3">
+                                  </select>
+                                </div>
+                                <div class="form-group">
+                                  <label for="ulp">ULP</label>
+                                  <select class="form-control" id="ulp">
+                                  </select>
+                                </div> 
+                                
+                                <div class="form-group">
+                                  <label for="wig">WIG</label>
+                                  <select class="form-control" id="wig">
+                                  </select>
+                                </div>
+  
+                                <div class="form-group">
+                                  <label for="lm">LM</label>
+                                  <select class="form-control" id="lm">
+                                  </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col">
+                                            <label for="tanggal_awal">Tanggal Awal</label> 
+                                            <input type="date" class="form-control" id="tanggal_awal">
+                                        </div>
+                                        <div class="col">
+                                            <label for="tanggal_akhir">Tanggal Akhir</label> 
+                                            <input type="date" class="form-control" id="tanggal_akhir">
+                                        </div>
+                                    </div>
+                                  </div>
+                                                                
+                                <div class="mt-3 mb-3 text-right">
+                                  <button id="LoadData" type="button" class="btn btn-primary">LOAD</button>
+                                </div>
+                              </form>
+                             
+                              <div class="table-responsive">   
+                                <label for="summary">SUMARRY</label> 
+                                <table class="table table-bordered" id="dataTableSum" width="100%" cellspacing="0">
+                                    <thead id="dataTableHeadSum">
+                                    </thead>
+                                    <tbody id="dataTableBodySum">    
+                                    </tbody>
+                                </table>
+                                </div>    
+
+                            <div class="table-responsive">
+                                <label for="detail">DETAIL</label> 
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead id="dataTableHead">
+                                    </thead>
+                                    <tbody id="dataTableBody">    
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Your Website 2020</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+    
+
+
+
+
+
+    <!-- Page level custom scripts -->
+    <!-- <script src="js/demo/datatables-demo.js"></script> -->
+    <!--Load Data dari Google Sheet PRR-->
+    <script>
+        $(document).ready(function() {
+            //START LOAD
+            $.ajax({
+                type: 'GET',
+                url: "services/get_up3.php",
+                cache: false,
+                success: function(msg) {
+                    $("#up3").html(msg);
+                }
+            });
+
+            $("#up3").change(function() {
+                var up3id = $("#up3").val();
+                $.ajax({
+                    type: 'GET',
+                    url: "services/get_ulp.php",
+                    data: {
+                        up3id: up3id
+                    },
+                    cache: false,
+                    success: function(msg) {
+                        $("#ulp").html(msg);
+                    }
+                });
+            });
+
+            $.ajax({
+                type: 'GET',
+                url: "services/get_wig.php",
+                cache: false,
+                success: function(msg) {
+                    $("#wig").html(msg);
+                }
+            });
+
+            $("#wig").change(function() {
+                var wigid = $("#wig").val();
+                $.ajax({
+                    type: 'GET',
+                    url: "services/get_lm.php",
+                    data: {
+                        wigid: wigid
+                    },
+                    cache: false,
+                    success: function(msg) {
+                        $("#lm").html(msg);
+                    }
+                });
+            });
+//END LOAD
+
+//newtable
+//TABLE
+var myTable = $('#dataTableSum').DataTable({
+                paging: true,
+                lengthChange: true,
+                searching: false,
+                ordering: true,
+                info: true,
+                autoWidth: true,
+                dom: 'Bfrtip',
+                buttons: [
+                    'copyHtml5',
+                    'excelHtml5',
+                    'csvHtml5',
+                    'pdfHtml5'
+                ],
+                data: [],
+                columns: [
+                  {
+                      
+                      title: "ULP",
+                      data: "ulp"
+                  },{
+                      title: "WIG",
+                      data: "wig"
+                  }, {
+                      title: "LM",
+                      data: "lm"
+                  }, {
+                      title: "TOTAL MENANG",
+                      data: "total_menang"
+                  }, {
+                      title: "TOTAL KALAH",
+                      data: "total_kalah"
+                      
+                  }
+                  , {
+                      title: "STATUS",
+                      data: (data) => {
+                      if (data.total_menang > data.total_kalah) {
+                          return `<div class="text-center">
+                              <button data-id="${data.status}" class="btn btn-success btn-circle btn-sm">
+                                  <i class="fas fa-check"></i>
+                              </button>
+                          </div>`;
+                      } else if (data.total_menang < data.total_kalah) {
+                          return `<div class="text-center">
+                              <button data-id="${data.status}" class="btn btn-danger btn-circle btn-sm">
+                                  <i class="fas fa-remove"></i>
+                              </button>
+                          </div>`;
+                      }
+
+                      return 'Belum ada status'
+                     }
+                        
+                    }
+                ]
+            });
+
+            $("#LoadData").click(function(e) {
+                var up3 = $("#up3").val();
+                var ulp = $("#ulp").val();
+                var wig = $("#wig").val();
+                var lm = $("#lm").val();
+                var tanggal_awal = $("#tanggal_awal").val();
+                var tanggal_akhir = $("#tanggal_akhir").val();
+              
+                console.log(up3);
+                console.log(wig);
+                console.log(tanggal_awal);
+                // var sheetName = $("#up3").val();
+                $.ajax({
+                    type: "GET",
+                    //ambildari google appscipt
+                    url: "services/get_realisasi_ulp_sum.php",
+                    //end appscript
+                    // kirim kriteria
+                    data: {
+                        up3:up3,
+                        ulp:ulp,
+                        wig: wig,
+                        lm: lm,
+                        tanggal_akhir:tanggal_akhir,
+                        tanggal_awal:tanggal_awal,
+                    },
+                    dataType: 'json',
+                    beforeSend: function() {
+                        var tr = $('#dataTableBodySum');
+                        var spinner = `<tr class="odd">
+                        <td valign="top" colspan="6" class"dataTables_empty">
+                                <div class="text-center">
+                                    <div class="spinner-border" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>`;
+                        tr.html(spinner);
+                    },
+                    success: function (obj, textstatus) {
+                        var dataSet = new Array;
+                        if (!('error' in obj)) {
+                            $.each(obj, function (index, value) {
+                                var tempArray = new Array;
+                                for (var o in value) {
+                                    tempArray.push(value[o]);
+                                }
+                                dataSet.push(tempArray);
+                            });
+
+                            myTable.clear();
+                            $.each(obj, function(index, value) {
+                                myTable.row.add(value);
+                            });
+                            myTable.draw();
+                        }
+                        else {
+                            alert(obj.error);
+                        }
+                    },
+                    error: function (obj, textstatus) {
+                        alert(obj.msg);
+                    }
+                }); 
+            });  
+        });
+
+    //LOAD DATA DYNAMIC
+
+//endtable
+
+
+//TABLE
+            var myTable = $('#dataTable').DataTable({
+                paging: true,
+                lengthChange: true,
+                searching: false,
+                ordering: true,
+                info: true,
+                autoWidth: true,
+                dom: 'Bfrtip',
+                buttons: [
+                    'copyHtml5',
+                    'excelHtml5',
+                    'csvHtml5',
+                    'pdfHtml5'
+                ],
+                data: [],
+                columns: [
+                    {
+                      
+                        title: "ULP",
+                        data: "ulp"
+                    },{
+                        title: "WIG",
+                        data: "wig"
+                    }, {
+                        title: "LM",
+                        data: "lm"
+                    }, {
+                        title: "TARGET",
+                        data: "total_target"
+                    }, {
+                        title: "REALISASI",
+                        data: "total_realisasi"
+                        
+                    },{
+                        title: "TANGGAL",
+                        data: "tanggal_insert"
+                        
+                    }, {
+                        title: "STATUS",
+                        data: (data) => {
+                        if (data.status == 'MENANG') {
+                            return `<div class="text-center">
+                                <button data-id="${data.status}" class="btn btn-success btn-circle btn-sm">
+                                    <i class="fas fa-check"></i>
+                                </button>
+                            </div>`;
+                        } else if (data.status == 'KALAH') {
+                            return `<div class="text-center">
+                                <button data-id="${data.status}" class="btn btn-danger btn-circle btn-sm">
+                                    <i class="fas fa-remove"></i>
+                                </button>
+                            </div>`;
+                        }
+
+                        return 'Belum ada status'
+        }
+                        
+                    }
+                ]
+            });
+
+            $("#LoadData").click(function(e) {
+                var up3 = $("#up3").val();
+                var ulp = $("#ulp").val();
+                var wig = $("#wig").val();
+                var lm = $("#lm").val();
+                var tanggal_awal = $("#tanggal_awal").val();
+                var tanggal_akhir = $("#tanggal_akhir").val();
+              
+                console.log(up3);
+                console.log(wig);
+                console.log(tanggal_awal);
+                // var sheetName = $("#up3").val();
+                $.ajax({
+                    type: "GET",
+                    //ambildari google appscipt
+                    url: "services/get_realisasi_ulp.php",
+                    //end appscript
+                    // kirim kriteria
+                    data: {
+                        up3:up3,
+                        ulp:ulp,
+                        wig: wig,
+                        lm: lm,
+                        tanggal_akhir:tanggal_akhir,
+                        tanggal_awal:tanggal_awal,
+                    },
+                    dataType: 'json',
+                    beforeSend: function() {
+                        var tr = $('#dataTableBody');
+                        var spinner = `<tr class="odd">
+                        <td valign="top" colspan="6" class"dataTables_empty">
+                                <div class="text-center">
+                                    <div class="spinner-border" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>`;
+                        tr.html(spinner);
+                    },
+                    success: function (obj, textstatus) {
+                        var dataSet = new Array;
+                        if (!('error' in obj)) {
+                            $.each(obj, function (index, value) {
+                                var tempArray = new Array;
+                                for (var o in value) {
+                                    tempArray.push(value[o]);
+                                }
+                                dataSet.push(tempArray);
+                            });
+
+                            myTable.clear();
+                            $.each(obj, function(index, value) {
+                                myTable.row.add(value);
+                            });
+                            myTable.draw();
+                        }
+                        else {
+                            alert(obj.error);
+                        }
+                    },
+                    error: function (obj, textstatus) {
+                        alert(obj.msg);
+                    }
+                }); 
+            });  
+        
+
+    //LOAD DATA DYNAMIC
+
+    
+</script>
+
+</body>
+
+</html>
